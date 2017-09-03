@@ -15,3 +15,6 @@ Install required libraries.
 2. Check `out/emails.txt` for email address in comments.
 
 3. Check `out/scraped.json` for errors. 
+
+# Commands Help Message
+`python cli.py <command> -- --help`
