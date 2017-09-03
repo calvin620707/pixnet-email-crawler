@@ -9,8 +9,8 @@ import json
 class Crawler:
     """Crawler to get emails from pixnet's comments"""
 
-    scraped_ret_file = 'results.json'
-    emails_file = 'emails.txt'
+    scraped_ret_file = 'out/scraped.json'
+    emails_file = 'out/emails.txt'
 
     def get(self, start=0):
         r_path = Path(self.scraped_ret_file)
