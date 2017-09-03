@@ -13,14 +13,17 @@ class Crawler:
     emails_file = 'out/emails.txt'
     errors_file = 'out/errors.json'
 
-    def get(self, start=0):
+    def get(self, url=None, start=0):
         s_path = Path(self.scraped_ret_file)
         if s_path.is_file():
             print("Clean up {}".format(s_path))
             s_path.unlink()
 
         print("Start scraping...")
-        subprocess.call(['scrapy', 'runspider', '--nolog', 'spider.py', '-o', self.scraped_ret_file])
+        cmd = ['scrapy', 'runspider', '--nolog', 'spider.py', '-o', self.scraped_ret_file]
+        if url:
+            cmd += ['-a', 'url={}'.format(url)]
+        subprocess.call(cmd)
         print("Finish scraping.")
 
         with s_path.open() as f:

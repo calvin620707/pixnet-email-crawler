@@ -6,7 +6,7 @@ Install required libraries.
 # Usage
 1. Run CLI
 
-    `python cli.py get [start]`
+    `python cli.py get [url] [start]`
     
     You can use `start` to filter email start from which floor.
     Example:

@@ -6,12 +6,19 @@ from w3lib.html import remove_tags
 
 class EmailsSpider(scrapy.Spider):
     name = "emails"
-    start_urls = [
-        'http://pattydraw.pixnet.net/blog/post/274202089?comment_page=1'
-    ]
     custom_settings = {
         'FEED_EXPORT_ENCODING': 'utf-8'
     }
+
+    def start_requests(self):
+        url = 'http://pattydraw.pixnet.net/blog/post/274202089?comment_page=1'
+        if hasattr(self, 'url'):
+            url = self.url
+
+        print('Start scraping {}'.format(url))
+        yield scrapy.Request(url, self.parse)
+
+
 
     def parse(self, response):
         prev_floor = 0
