@@ -12,7 +12,7 @@ class Crawler:
     scraped_ret_file = 'results.json'
     emails_file = 'emails.txt'
 
-    def get(self, start=0, url=None):
+    def get(self, start=0):
         r_path = Path(self.scraped_ret_file)
         if r_path.is_file():
             r_path.unlink()
@@ -21,6 +21,10 @@ class Crawler:
 
         with r_path.open() as f:
             data = json.load(f)
+
+            if start:
+                data = list(filter(lambda x: x['floor']> start, data))
+
             emails = [d['email'] for d in data if d['email']]
 
         e_path = Path(self.emails_file)
