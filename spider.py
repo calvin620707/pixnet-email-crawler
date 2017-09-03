@@ -5,7 +5,7 @@ import re
 class EmailsSpider(scrapy.Spider):
     name = "emails"
     start_urls = [
-        'http://pattydraw.pixnet.net/blog/post/274202089?comment_page=2'
+        'http://pattydraw.pixnet.net/blog/post/274202089?comment_page=1'
     ]
     custom_settings = {
         'FEED_EXPORT_ENCODING': 'utf-8'
@@ -39,6 +39,10 @@ class EmailsSpider(scrapy.Spider):
                 continue
 
             yield self._result(floor, matched[0])
+
+        next_page = response.css('div.page').css('a.next::attr("href")').get()
+        if next_page:
+            yield response.follow(next_page, self.parse)
 
     def _result(self, floor, email, raw_text=None, errors=None):
         ret = {
