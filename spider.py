@@ -1,5 +1,7 @@
-import scrapy
 import re
+
+import scrapy
+from w3lib.html import remove_tags
 
 
 class EmailsSpider(scrapy.Spider):
@@ -25,7 +27,7 @@ class EmailsSpider(scrapy.Spider):
             text_item = comment.css('li.post-text')
             email_domain = text_item.xpath('a/text()').get()
             raw_text = text_item.get()
-            # raw_text = raw_text.replace(' ', '')
+            raw_text = raw_text.replace('    ', '')
             raw_text = raw_text.replace('\n', '')
 
             if email_domain:
@@ -35,7 +37,7 @@ class EmailsSpider(scrapy.Spider):
             matched = email_ptn.search(raw_text)
 
             if not matched:
-                yield self._result(floor, None, errors=['email not found'], raw_text=raw_text)
+                yield self._result(floor, None, errors=['email not found'], raw_text=remove_tags(raw_text))
                 continue
 
             yield self._result(floor, matched[0])
