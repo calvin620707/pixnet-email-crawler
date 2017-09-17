@@ -33,6 +33,7 @@ class Crawler:
                 data = list(filter(lambda x: x['floor']> start, data))
 
             emails = [d['email'] for d in data if d['email']]
+            emails = list(set(emails))
             errors = [d for d in data if not d['email']]
 
         print("Filter scraped data...")
