@@ -102,3 +102,4 @@ ENV/
 
 out
 db.sqlite3
+staticfiles
