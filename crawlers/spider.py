@@ -18,8 +18,6 @@ class EmailsSpider(scrapy.Spider):
         print('Start scraping {}'.format(url))
         yield scrapy.Request(url, self.parse)
 
-
-
     def parse(self, response):
         prev_floor = 0
 
