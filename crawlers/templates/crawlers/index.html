@@ -1,3 +1,12 @@
 {% extends 'crawlers/base.html' %}
 
-{% block title %}Test{% endblock %}
+{% load bootstrap4 %}
+
+{% block title %}Start{% endblock %}
+{% block content %}
+    <form role="form" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons submit='OK' reset="Cancel" %}{% endbuttons %}
+    </form>
+{% endblock %}
