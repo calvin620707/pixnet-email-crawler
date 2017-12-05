@@ -2,7 +2,27 @@
 
 {% load bootstrap4 %}
 
-{% block title %}Start{% endblock %}
+{% block title %}Results{% endblock %}
 {% block content %}
-{{ scraped }}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">樓層</th>
+            <th scope="col">Email</th>
+            <th scope="col">錯誤</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in scraped %}
+            <tr>
+                <th scope="row">{{ row.floor }}</th>
+                <td>{{ row.email }}</td>
+                <td>{{ row.errors }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
 {% endblock %}
