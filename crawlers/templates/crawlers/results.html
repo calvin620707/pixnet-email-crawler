@@ -16,8 +16,12 @@
         {% for row in scraped %}
             <tr>
                 <th scope="row">{{ row.floor }}</th>
-                <td>{{ row.email }}</td>
-                <td>{{ row.errors }}</td>
+                {% if row.email is not null %}
+                    <td>{{ row.email }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+                <td>{{ row.err_msg }}</td>
             </tr>
         {% endfor %}
         </tbody>
