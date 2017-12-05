@@ -4,7 +4,16 @@
 
 {% block title %}Results{% endblock %}
 {% block content %}
-    <table class="table">
+    <div class="row">
+        <div class="input-group col-6">
+            <input type="number" class="form-control" placeholder="幾樓開始？" id="startFloor">
+            <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button" onclick="filterByFloor()">篩選</button>
+            </span>
+        </div>
+    </div>
+
+    <table class="table" id="resultTable">
         <thead>
         <tr>
             <th scope="col">樓層</th>
@@ -26,7 +35,26 @@
         {% endfor %}
         </tbody>
     </table>
+{% endblock %}
+{% block bootstrap4_extra_script %}
+    <script>
+        function filterByFloor() {
+            // Declare variables
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("startFloor");
+            filter = input.value;
+            table = document.getElementById("resultTable");
+            tr = table.getElementsByTagName("tr");
 
-
-
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 1; i < tr.length; i++) {
+                var floor = tr[i].getElementsByTagName("th")[0].innerText;
+                if (parseInt(floor) > filter) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 {% endblock %}
