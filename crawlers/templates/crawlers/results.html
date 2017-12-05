@@ -6,10 +6,7 @@
 {% block content %}
     <div class="row">
         <div class="input-group col-6">
-            <input type="number" class="form-control" placeholder="幾樓開始？" id="startFloor">
-            <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button" onclick="filterByFloor()">篩選</button>
-            </span>
+            <input type="number" class="form-control" placeholder="幾樓開始？" id="startFloor" onkeyup="filterByFloor()">
         </div>
     </div>
 
