@@ -10,6 +10,10 @@ An utterly fantastic project starter template for Django 1.11.
 
 ## How to Use
 
+### Heroku
+https://pec-tw.herokuapp.com/
+
+### Local
 To use this project, follow these steps:
 
 1. Create your working environment.
