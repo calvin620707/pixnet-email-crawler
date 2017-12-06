@@ -23,7 +23,7 @@
                 <tr>
                     <th scope="col">Floor</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Error</th>
+                    <th scope="col">Comment</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,7 +35,14 @@
                         {% else %}
                             <td></td>
                         {% endif %}
-                        <td>{{ row.err_msg }}</td>
+                        <td>
+                            {% if row.text %}
+                                {{ row.text }}
+                                {% else %}
+                                {{ row.err_msg }}
+                            {% endif %}
+
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -49,6 +56,10 @@
 {% endblock %}
 {% block bootstrap4_extra_script %}
     <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
         function filterByFloor() {
             // Declare variables
             var input, filter, table, tr, i;

@@ -45,7 +45,7 @@ class EmailsSpider(scrapy.Spider):
                 yield self._result(floor, None, errors=['email not found'], raw_text=remove_tags(raw_text))
                 continue
 
-            yield self._result(floor, matched[0])
+            yield self._result(floor, matched[0], raw_text=remove_tags(raw_text))
 
         next_page = response.css('div.page').css('a.next::attr("href")').get()
         if next_page:
