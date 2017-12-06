@@ -6,6 +6,7 @@
     <div class="container">
         <nav class="navbar navbar-dark bg-dark">
             <span class="navbar-brand">Pixnet Emails Crawler - {% block title %}{% endblock %}</span>
+            <a href="{% url 'index' %}" class="btn btn-outline-light">Home</a>
         </nav>
 
         {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
