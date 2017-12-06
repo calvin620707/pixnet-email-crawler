@@ -16,28 +16,34 @@
         </div>
     </div>
 
-    <table class="table" id="resultTable">
-        <thead>
-        <tr>
-            <th scope="col">Floor</th>
-            <th scope="col">Email</th>
-            <th scope="col">Error</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for row in scraped %}
-            <tr>
-                <th scope="row">{{ row.floor }}</th>
-                {% if row.email is not null %}
-                    <td>{{ row.email }}</td>
-                {% else %}
-                    <td></td>
-                {% endif %}
-                <td>{{ row.err_msg }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-12">
+            <table class="table" id="resultTable">
+                <thead>
+                <tr>
+                    <th scope="col">Floor</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Error</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in scraped %}
+                    <tr>
+                        <th scope="row">{{ row.floor }}</th>
+                        {% if row.email is not null %}
+                            <td>{{ row.email }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        <td>{{ row.err_msg }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
     <label for="resultEmails" style="display: none;"></label>
     <textarea id="resultEmails" style="display: none;"></textarea>
 {% endblock %}
