@@ -1,0 +1,6 @@
+{
+  "name": "Pixnet Email Crawler (PEC)",
+  "description": "A tool to crawl email addresses in pixnet comments.",
+  "repository": "https://github.com/calvin620707/pixnet-email-crawler",
+  "keywords": ["pixnet", "email", "django", "heroku", "crawler"]
+}
