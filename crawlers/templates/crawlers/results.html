@@ -5,11 +5,11 @@
 {% block title %}Results{% endblock %}
 {% block content %}
     <div class="row justify-content-between">
-        <div class="col-4">
+        <div class="col-12 col-md-6 col-xl-4">
             <input type="number" class="form-control" placeholder="Start from which floor?" id="startFloor"
                    onkeyup="filterByFloor()">
         </div>
-        <div class="col-4 justify-content float-right">
+        <div class="col-auto justify-content float-right">
             <button type="button" class="btn btn-primary" onclick="copyEmails()">
                 Copy following emails
             </button>
