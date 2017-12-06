@@ -20,15 +20,9 @@ To use this project, follow these steps:
 2. Install Django (`$ pip install django`)
 3. Create a new project using this template
 
-## Creating Your Project
+## Development
 
-Using this template to create a new Django app is easy::
-
-    $ django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile helloworld
-
-(If this doesn't work on windows, replace `django-admin.py` with `django-admin`)
-
-You can replace ``helloworld`` with your desired project name.
+Use [pipenv](https://github.com/kennethreitz/pipenv) as package management.
 
 ## Deployment to Heroku
 
