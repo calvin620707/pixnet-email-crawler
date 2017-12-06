@@ -4,9 +4,14 @@
 
 {% block title %}Pixnet Emails Crawler{% endblock %}
 {% block content %}
-    <form role="form" method="post">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons submit='OK' reset="Reset" %}{% endbuttons %}
-    </form>
+    <div class="row align-items-center justify-content-center" style="height: 100vh">
+        <div class="col-12 col-md-8 col-xl-6">
+            <form role="form" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons submit='OK' reset="Reset" %}{% endbuttons %}
+            </form>
+        </div>
+    </div>
+
 {% endblock %}
