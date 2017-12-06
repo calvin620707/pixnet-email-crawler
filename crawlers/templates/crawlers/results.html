@@ -6,11 +6,12 @@
 {% block content %}
     <div class="row justify-content-between">
         <div class="col-2">
-            <input type="number" class="form-control" placeholder="幾樓開始？" id="startFloor" onkeyup="filterByFloor()">
+            <input type="number" class="form-control" placeholder="Start from which floor?" id="startFloor"
+                   onkeyup="filterByFloor()">
         </div>
         <div class="col-2">
             <button type="button" class="btn btn-primary" onclick="copyEmails()">
-                複製下面所有email
+                Copy following emails
             </button>
         </div>
     </div>
@@ -18,9 +19,9 @@
     <table class="table" id="resultTable">
         <thead>
         <tr>
-            <th scope="col">樓層</th>
+            <th scope="col">Floor</th>
             <th scope="col">Email</th>
-            <th scope="col">錯誤</th>
+            <th scope="col">Error</th>
         </tr>
         </thead>
         <tbody>

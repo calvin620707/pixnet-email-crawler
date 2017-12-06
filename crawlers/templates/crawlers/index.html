@@ -2,11 +2,11 @@
 
 {% load bootstrap4 %}
 
-{% block title %}Start{% endblock %}
+{% block title %}Pixnet Emails Crawler{% endblock %}
 {% block content %}
     <form role="form" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        {% buttons submit='OK' reset="Cancel" %}{% endbuttons %}
+        {% buttons submit='OK' reset="Reset" %}{% endbuttons %}
     </form>
 {% endblock %}
