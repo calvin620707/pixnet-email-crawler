@@ -80,7 +80,10 @@
 
             var resultHtml = document.getElementById("resultEmails");
             resultHtml.style.display = "";
-            resultHtml.value = results.join("\n");
+            var deduped = results.filter(function (el, i, arr) {
+                return arr.indexOf(el) === i;
+            });
+            resultHtml.value = deduped.join("\n");
             resultHtml.select();
             document.execCommand("Copy");
             resultHtml.style.display = "none";
