@@ -5,11 +5,11 @@
 {% block title %}Results{% endblock %}
 {% block content %}
     <div class="row justify-content-between">
-        <div class="col-2">
+        <div class="col-4">
             <input type="number" class="form-control" placeholder="Start from which floor?" id="startFloor"
                    onkeyup="filterByFloor()">
         </div>
-        <div class="col-2">
+        <div class="col-4 justify-content float-right">
             <button type="button" class="btn btn-primary" onclick="copyEmails()">
                 Copy following emails
             </button>
@@ -45,7 +45,7 @@
     <script>
         function filterByFloor() {
             // Declare variables
-            var input, filter, table, tr, td, i;
+            var input, filter, table, tr, i;
             input = document.getElementById("startFloor");
             filter = input.value;
             table = document.getElementById("resultTable");
@@ -71,7 +71,7 @@
             for (var i = 1; i < tr.length; i++) {
                 var emailDiv = tr[i].getElementsByTagName("td")[0];
                 var floor = tr[i].getElementsByTagName("th")[0].innerText;
-                floor = parseInt(floor)
+                floor = parseInt(floor);
                 if (floor <= filterFloor || !emailDiv.innerText) {
                     continue
                 }

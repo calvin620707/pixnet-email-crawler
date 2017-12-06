@@ -32,11 +32,11 @@ class IndexView(views.View):
             return row
 
         if 'is secret' in row['errors']:
-            row['err_msg'] = "悄悄話"
+            row['err_msg'] = "Secret comment"
         if 'email not found' in row['errors']:
             if row.get('err_msg'):
                 row['err_msg'] += ', '
             else:
                 row['err_msg'] = ''
-            row['err_msg'] += "找不到Email"
+            row['err_msg'] += "Email not found"
         return row
